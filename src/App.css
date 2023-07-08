@@ -1,0 +1,65 @@
+body {
+  background-color: #62c2c8;
+}
+
+.App {
+  background-color: white;
+  min-height: 80vh;
+  width: 400px;
+  margin: 20px auto;
+}
+
+.crossed {
+  text-decoration: line-through red 2px;
+  background-color: #f0f0f0;
+}
+
+ul, li {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Container {
+  display: flex;
+  justify-content: center;
+}
+
+.Add {
+  margin-top: 5px;
+  background: #65aa06;
+  padding: 10px;
+  border: none;
+  width: 70%;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Delete {
+  margin-bottom: 5px;
+  background: #d30100;
+  padding: 10px;
+  border: none;
+  width: 70%;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input {
+  flex: 1;
+  margin: 10px;
+  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+img {
+  border-radius: 50%;
+}
