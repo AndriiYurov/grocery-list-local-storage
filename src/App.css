@@ -19,13 +19,7 @@ ul, li {
   padding: 10px;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-}
-
-.li {
-  border: none;
-  background: none;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
 }
 
 h1 {
@@ -76,8 +70,6 @@ img {
   align-items: baseline;
   justify-content: space-between;
 }
-
-
 
 @media all and (max-width: 400px) {
   .App {
