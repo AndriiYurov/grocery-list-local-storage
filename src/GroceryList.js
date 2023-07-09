@@ -2,17 +2,17 @@ import { useState } from 'react';
 import check from './check.jpg';
 import { useEffect } from 'react';
 import uuid from 'react-uuid';
-import { AiFillEdit, AiFillDelete } from "react-icons/ai"
+import { AiFillDelete } from "react-icons/ai"
 
 const GroceryList = () => {
 
     const [userInput, setUserInput] = useState('')
     const [groceryList, setGroceryList] = useState(localStorage.groceryList ? JSON.parse(localStorage.groceryList) : [])
-    const [update, setUpdate] = useState('')
+    
 
     useEffect(() => {
         localStorage.setItem("groceryList", JSON.stringify(groceryList))
-    }, [groceryList, update])
+    }, [groceryList])
 
     const addItem = () => {
         if (userInput === '') {
