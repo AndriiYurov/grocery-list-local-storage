@@ -37,7 +37,7 @@ const GroceryList = () => {
 
     const crossedWord = (id) => {
        const button = document.getElementById(id)
-       button.classList.toggle('crossed');
+       button.classList.add('crossed');
     }
 
     const deleteItems = () => {
