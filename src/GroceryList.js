@@ -65,7 +65,7 @@ const GroceryList = () => {
             <ul>
                 {groceryList.map((item) => (
                     <div className='list' key={item.id}>
-                    <li onPointerEnter={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
+                    <li><img src={check} width="30px" alt="cart"/><button className='li' onClick={crossedWord}>{item.title}</button></li>
                     <AiFillDelete onClick={() => deleteItem(item.id)}></AiFillDelete>
                     </div>
                     
