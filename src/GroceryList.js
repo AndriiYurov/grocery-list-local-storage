@@ -1,16 +1,18 @@
-
 import { useState } from 'react';
 import check from './check.jpg';
 import { useEffect } from 'react';
+import uuid from 'react-uuid';
+import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 
 const GroceryList = () => {
 
     const [userInput, setUserInput] = useState('')
     const [groceryList, setGroceryList] = useState(localStorage.groceryList ? JSON.parse(localStorage.groceryList) : [])
+    const [update, setUpdate] = useState('')
 
     useEffect(() => {
         localStorage.setItem("groceryList", JSON.stringify(groceryList))
-    }, [groceryList])
+    }, [groceryList, update])
 
     const addItem = () => {
         if (userInput === '') {
@@ -18,7 +20,11 @@ const GroceryList = () => {
         }
 
         else {
-            setGroceryList([userInput, ...groceryList])
+            const newList = {
+                title: userInput,
+                id: uuid()
+            }
+            setGroceryList([newList, ...groceryList])
             setUserInput('')
         }
     }
@@ -27,17 +33,23 @@ const GroceryList = () => {
     const crossedWord = (event) => {
         const li = event.target;
         li.classList.toggle('crossed');
+        console.log(groceryList)
     }
 
-    const deleteItem = () => {
+    const deleteItems = () => {
         setGroceryList([])
+    }
+
+    const deleteItem = (id) => {
+        let items =JSON.parse(localStorage.getItem("groceryList"));
+        items = items.filter((item) => item.id !== id);
+        setGroceryList(items)
     }
 
     const onFormSubmit = (e) => {
         e.preventDefault();
     }
-/////
-   
+
         return(
             <div>
             <form onSubmit={onFormSubmit}>
@@ -51,12 +63,16 @@ const GroceryList = () => {
             <button onClick={() => addItem()} className="Add">Add</button>
             </div>
             <ul>
-                {groceryList.map((item, index) => (
-                    <li onClick={crossedWord} key={index}><img src={check} width="30px" alt="cart"/>{item}</li>
+                {groceryList.map((item) => (
+                    <div className='list' key={item.id}>
+                    <li onPointerEnter={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
+                    <AiFillDelete onClick={() => deleteItem(item.id)}></AiFillDelete>
+                    </div>
+                    
                 ))}
             </ul>
             <div className="Container">
-            <button onClick={deleteItem} className="Delete">Delete</button>
+            <button onClick={deleteItems} className="Delete">Delete</button>
             </div>
             </form>
             </div>

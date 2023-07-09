@@ -63,3 +63,15 @@ input {
 img {
   border-radius: 50%;
 }
+
+.list {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+@media all and (max-width: 400px) {
+  .App {
+    width: 80%;
+  }
+}
