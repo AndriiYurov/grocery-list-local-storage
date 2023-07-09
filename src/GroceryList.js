@@ -29,10 +29,15 @@ const GroceryList = () => {
         }
     }
 
-    const crossedWord = (event) => {
-        event.preventDefault();
-        const li = event.target;
-        li.classList.toggle('crossed');
+    // const crossedWord = (event) => {
+    //     event.preventDefault();
+    //     const li = event.target;
+    //     li.classList.toggle('crossed');
+    // }
+
+    const crossedWord = (id) => {
+       const button = document.getElementById(id)
+       button.classList.toggle('crossed');
     }
 
     const deleteItems = () => {
@@ -64,7 +69,8 @@ const GroceryList = () => {
             <ul>
                 {groceryList.map((item) => (
                     <div className='list' key={item.id}>
-                    <li role='button' onClick={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
+                    {/* <li role='button' onClick={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li> */}
+                    <button id={item.id} onClick={() => crossedWord(item.id)}>{item.title}</button>
                     <AiFillDelete onClick={() => deleteItem(item.id)}></AiFillDelete>
                     </div>
                     
