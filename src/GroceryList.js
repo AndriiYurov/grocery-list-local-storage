@@ -69,7 +69,7 @@ const GroceryList = () => {
             <ul>
                 {groceryList.map((item) => (
                     <div className='list' key={item.id}>
-                    <li role='button' onClick={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
+                    <li onClick={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
                     {/* <button id={item.id} onClick={() => crossedWord(item.id)}><img src={check} width="30px" alt="cart"/>{item.title}</button> */}
                     <AiFillDelete onClick={() => deleteItem(item.id)}></AiFillDelete>
                     </div>

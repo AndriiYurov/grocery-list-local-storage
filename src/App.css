@@ -11,6 +11,7 @@ body {
 
 .crossed {
   text-decoration: line-through red 2px;
+  -webkit-text-decoration: line-through red;
   /* background-color: #f0f0f0; */
   background-color: #149718;
 }
