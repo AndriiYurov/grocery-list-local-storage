@@ -20,6 +20,7 @@ ul, li {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
+  z-index: 1000;
 }
 
 h1 {
