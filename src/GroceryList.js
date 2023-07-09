@@ -14,7 +14,7 @@ const GroceryList = () => {
         localStorage.setItem("groceryList", JSON.stringify(groceryList))
     }, [groceryList])
 
-    const addItem = () => {
+    const addItem = (event) => {
         if (userInput === '') {
             alert("Please enter an item!")
         }
@@ -64,7 +64,7 @@ const GroceryList = () => {
             <ul>
                 {groceryList.map((item) => (
                     <div className='list' key={item.id}>
-                    <li onClick={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
+                    <li onClick={crossedWord} onTouchStart={crossedWord}><img src={check} width="30px" alt="cart"/>{item.title}</li>
                     <AiFillDelete onClick={() => deleteItem(item.id)}></AiFillDelete>
                     </div>
                     
